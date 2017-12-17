@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Example Two - What time is it?</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>What time is it?</h1>
+            <div class="clock">
+                Time for you to get a clock.
+            </div>
+        </div>
+
+        <div id="contents">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="./example-1.html">Example 1 - Responsive Design</a></li>
+                <li><a href="./example-2.html">Example 2 - Clock</a></li>
+                <li><a href="./example-3.html">Example 3 - Guess the Number</a></li>
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+            function updateClock() {
+                setTimeout(function () {
+                    var clock = document.querySelector('.clock');
+
+                    updateClock(); // Whoa, aren't we already in the "updateClock" function?
+                }, 1000); // What does this mean?
+            }
+            updateClock();
+        </script>
+    </body>
+</html>

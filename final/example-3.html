@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Example Three - Guess the Number</title>
+        <link rel="stylesheet" href="../style.css">
+        <style>
+            .number {
+                color: rgb(255, 255, 255);
+                font-size: 3em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Guess the number!</h1>
+            <div>
+                Your random number is:
+                <strong><span class="number"></span></strong>
+            </div>
+            <div>
+                <input type="text" name="myGuess" class="myGuess">
+                <button onclick="guess()">Guess!</button> <span id="hint"></span>
+                <br>
+                <button onclick="newNumber()">New Random Number</button>
+            </div>
+        </div>
+
+        <div id="contents">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="./example-1.html">Example 1 - Responsive Design</a></li>
+                <li><a href="./example-2.html">Example 2 - Clock</a></li>
+                <li><a href="./example-3.html">Example 3 - Guess the Number</a></li>
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+            var randomNumber;
+            var body = document.querySelector('body');
+
+            function guess() {
+                var myGuess = document.querySelector('.myGuess').value;
+
+                var hintField = document.querySelector('#hint');
+                if (myGuess == randomNumber) {
+                    body.style.backgroundColor = 'red';
+                    hintField.innerText = '';
+                } else if (myGuess !== '') {
+                    if (myGuess < randomNumber) {
+                        hintField.innerText = 'Your guess was too low.';
+                    } else {
+                        hintField.innerText = 'Your guess was too high.';
+                    }
+                    // Reset to the default style
+                    body.style.backgroundColor = '';
+                }
+            }
+
+            function generateRandomNumber(upto) {
+                return Math.round((Math.random() * upto));
+            }
+
+            function newNumber()
+            {
+                randomNumber = generateRandomNumber(100);
+
+                document.querySelector('.number').innerHTML = randomNumber;
+                guess();
+            }
+
+            newNumber();
+        </script>
+    </body>
+</html>

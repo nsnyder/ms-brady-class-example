@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+}
+#contents {
+    background-color: white;
+    border: 1px dashed black;
+    width: 300px;
+    padding: 1em;
+}
+
+.container {
+    word-break: break-all;
+    hyphens: auto;
+    position: relative;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media (min-width: 900px) {
+    #contents {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .container {
+        margin-right: 360px;
+    }
+}
